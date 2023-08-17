@@ -4,15 +4,26 @@
 <html>
     <head>
         <title> LOGIN </title>
+        <script>
+            function onLoginBtnClick(){
+                alert(document.getElementById("txtUsername").value);
+            }
+    
+            function onClearBtnClick(){
+                document.getElementById("txtUsername").value = "";
+            }
+        </script>
     </head>
     <body>
         <form>
-            <label for="Username">Username:</label><br>
-            <input type="text" id="txtUsername"><br>
-            <label for="Password">Password:</label><br>
-            <input type="text" id="txtPassword"><br>
-            <input type="Submit" value="Save" id="btnSubmit">
-            <input type="submit" value="Cancel" id="btnCancel">
+            <label for="txtUsername">Username:</label><br>
+            <input type="text" name="txtUsername" id="txtUsername"><br>
+
+            <label for="txtPassword">Password:</label><br>
+            <input type="text" name="txtPassword" id="txtPassword"><br>
+
+            <button type="submit" onClick="onLoginBtnClick()">Login</button>
+            <button type="button" onClick="onClearBtnClick()">Clear</button>
         </form>
     </body>
 </html>
