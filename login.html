@@ -1,29 +1,44 @@
 <!--Author: Adrianne Louise M. Petras-->
 <!--Comment: Javascript implementation will be prioritized. CSS to follow-->
 <!--To Do: Implement submit and cancel functionality-->
+<!DOCTYPE html>
 <html>
-    <head>
-        <title> LOGIN </title>
-        <script>
-            function onLoginBtnClick(){
-                alert(document.getElementById("txtUsername").value);
-            }
-    
-            function onClearBtnClick(){
-                document.getElementById("txtUsername").value = "";
-            }
-        </script>
-    </head>
-    <body>
-        <form>
-            <label for="txtUsername">Username:</label><br>
-            <input type="text" name="txtUsername" id="txtUsername"><br>
+<head>
+    <title> LOGIN </title>
+    <script>
+        function onLoginBtnClick() {
+            const errorMsg = "INCOMPLETE LOGIN DETAILS";
+            var username = document.getElementById("txtUsername").value.trim();
+            let isUsernameEmpty = false;
 
-            <label for="txtPassword">Password:</label><br>
-            <input type="text" name="txtPassword" id="txtPassword"><br>
+            if (username.length === 0) {
+                isUsernameEmpty = true;
+                alert(errorMsg);
+                errorMsg = "ERROR: Either the username or the password were not provided. Please try again.";
+            }
 
-            <button type="submit" onClick="onLoginBtnClick()">Login</button>
-            <button type="button" onClick="onClearBtnClick()">Clear</button>
-        </form>
-    </body>
+            console.log("isUsernameEmpty=", isUsernameEmpty);
+
+            // Return false to prevent form submission
+            return false;
+        }
+
+        function onClearBtnClick() {
+            document.getElementById("txtUsername").value = "";
+            document.getElementById("txtPassword").value = "";
+        }
+    </script>
+</head>
+<body>
+    <form onsubmit="return onLoginBtnClick();">
+        <label for="txtUsername">Username:</label><br>
+        <input type="text" name="txtUsername" id="txtUsername"><br>
+
+        <label for="txtPassword">Password:</label><br>
+        <input type="password" name="txtPassword" id="txtPassword"><br>
+
+        <button type="submit">Login</button>
+        <button type="button" onclick="onClearBtnClick()">Clear</button>
+    </form>
+</body>
 </html>
