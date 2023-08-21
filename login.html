@@ -9,7 +9,7 @@
         function onLoginBtnClick() {
             const errorMsg = "INCOMPLETE LOGIN DETAILS";
             var username = document.getElementById("txtUsername").value.trim();
-            var isUsernameEmpty = false;
+            let isUsernameEmpty = false;
 
             if (username.length === 0) {
                 isUsernameEmpty = true;
